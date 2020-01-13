@@ -1,0 +1,22 @@
+hbody {
+
+}
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: solid;
+  font-size: 24px;
+}
+th {
+
+}
+.activity{
+  color: white;
+  background-color: grey
+}
+.wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
