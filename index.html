@@ -13,7 +13,10 @@
     <form method="POST" id="form">
       <input id="name" placeholder="First name"></input><br>
       <input id="lname" placeholder="Last name"></input><br>
-      <input id="NativeOrB" placeholder="Native/Bilingual"></input><br>
+      <select id="NativeOrB" placeholder="Native/Bilingual">
+        <option value="native">Native</option>
+        <option value="bilingual">Bilingual</option>
+      </select><br>
       <input id="StartT" placeholder="start Time"></input><br>
       <input id="EndT" placeholder="end time"></input><br>
       <button type="submit" id="btn">ADD TEACHER</button>
@@ -100,7 +103,20 @@
             <option value="0.9">90%</option>
             <option value="1">100%</option>
           </select>
+          <select class="BilingualPercent" name="bilingualPercentage" id="BilingualP" >
+            <option value="0.1">10%</option>
+            <option value="0.2">20%</option>
+            <option value="0.3">30%</option>
+            <option value="0.4">40%</option>
+            <option value="0.5">50%</option>
+            <option value="0.6">60%</option>
+            <option value="0.7">70%</option>
+            <option value="0.8">80%</option>
+            <option value="0.9">90%</option>
+            <option value="1">100%</option>
+          </select>
         </td>
+
       </tr>
       <tr>
         <td> pick up Bus 2</td>
@@ -156,20 +172,6 @@
             <option value="1900">19:00</option>
             <option value="1930">19:30</option>
             <option value="2000">20:00</option>
-          </select>
-        </td>
-        <td>
-          <select class="BilingualPercent" name="bilingualPercentage" id="BilingualP" >
-            <option value="0.1">10%</option>
-            <option value="0.2">20%</option>
-            <option value="0.3">30%</option>
-            <option value="0.4">40%</option>
-            <option value="0.5">50%</option>
-            <option value="0.6">60%</option>
-            <option value="0.7">70%</option>
-            <option value="0.8">80%</option>
-            <option value="0.9">90%</option>
-            <option value="1">100%</option>
           </select>
         </td>
       </tr>
@@ -290,7 +292,7 @@
     </table>
 
 
-    <hr>
+  
 
     <div id="TeacherDisplay1"></div>
     <div id="TeacherDisplay2"></div>
@@ -303,6 +305,7 @@
 
     </div>
 
+    <hr>
 
     <div class="wrapper">
 
@@ -310,7 +313,7 @@
     <div class="preschooltable">
       <table>
         <tr>
-          <th>PRESCHOOL</th>
+          <th colspan="2">PRESCHOOL</th>
         </tr>
         <tr>
           <td class="activity" colspan="2">10:30 Fun With Teacher</td>
@@ -461,7 +464,7 @@
     <div class="KindyTable">
       <table>
         <tr>
-          <th>KINDY</th>
+          <th colspan="2">KINDY</th>
         </tr>
         <tr>
           <td class="activity" colspan="2">14:30 Fun With Teacher</td>
@@ -655,7 +658,7 @@
     <div class="ElementaryTable">
       <table>
         <tr>
-          <th>ELEMENTARY</th>
+          <th colspan="2">ELEMENTARY</th>
         </tr>
         <tr>
           <td class="activity" colspan="2">13:30 Fun with the teacher</td>

@@ -6,16 +6,24 @@ table {
 }
 
 td {
-  border: solid;
-  font-size: 24px;
+  padding: 12px 15px;
+  font-size: 20px;
 }
-th {
 
+th {
+text-align: center;
+font-weight: bold;
+background-color: grey;
+color: white;
+font-size: 20px;
 }
+
 .activity{
   color: white;
-  background-color: grey
+  background-color: #009879;
+  text-align: left;
 }
+
 .wrapper{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

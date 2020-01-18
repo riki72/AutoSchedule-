@@ -3,7 +3,7 @@
 
 function Teacher(f_name, l_name, NativeOrB, StartT, EndT, preFWT, prePE, preCT, preBDT, preOIP, preBL,
   preRST, preVT, preAP, preMA, preCP, prePP, kFWT, kSAT, kBBT, kST, kCT, kVT, kA1, kPh, kCP, k2hPP,
-  kABCT, kVRT, kSB, kBST, kA2, k4hCP, k4hPP, eFWT, ePT, eST, eSD, eClass1, e2ST, eGA, eC2B, eC2I, eP, eC3, eLFWT, cN ) {
+  kABCT, kVRT, kSB, kBST, kA2, k4hCP, k4hPP, eFWT, ePT, eST, eSD, eClass1, e2ST, eGA, eC2B, eC2I, eP, eC3, eLFWT, cN, kT ) {
     this.fname = f_name;
     this.lname = l_name;
     this.NativeStatus = NativeOrB ;
@@ -51,6 +51,7 @@ function Teacher(f_name, l_name, NativeOrB, StartT, EndT, preFWT, prePE, preCT, 
     this.EleClass3 = eC3;
     this.EleFWTLate = eLFWT;
     this.ClassN = cN;
+    this.KindyMain = kT;
 
 
   }  // Defining the object, consider it like a object template.
@@ -107,6 +108,7 @@ function Teacher(f_name, l_name, NativeOrB, StartT, EndT, preFWT, prePE, preCT, 
     var EleClass3 = "False";
     var EleFWTLate = "False";
     var ClassN = 0 ;
+    var KindyTag = false;
 
     if( list.length < 5){
       list[id] = new Teacher(name_value, lname_value, native, start, end, PreSchoolFWT,
@@ -114,7 +116,7 @@ function Teacher(f_name, l_name, NativeOrB, StartT, EndT, preFWT, prePE, preCT, 
         PreSchoolVT, PreSchoolAP, PreSchoolMA, PreSchoolCP, PreSchoolPP, KindyFWT, KindySAT, KindyBBT,
         KindyST, KindyCT, KindyVT, KindyA1, KindyPh, KindyCP, Kindy2hPP, KindyABCT, KindyVRT,
         KindySB, KindyBST, KindyA2, Kindy4hCP, Kindy4hPP, EleFWT, ElePT, EleST, EleSD, EleClass1,
-        Ele2ST, EleGA, Class2B, Class2I, EleP, EleClass3, EleFWTLate, ClassN);
+        Ele2ST, EleGA, Class2B, Class2I, EleP, EleClass3, EleFWTLate, ClassN, KindyTag);
         id++;}
         else if(list.length == 5){
           document.getElementById('TeacherFull').innerHTML = "Cannot add more teachers"
@@ -324,7 +326,7 @@ function Teacher(f_name, l_name, NativeOrB, StartT, EndT, preFWT, prePE, preCT, 
   //assignment of classes
 
   function ConflictCheck(lesson) {                          // conflict checker function
-      
+
 
 
   }
@@ -369,28 +371,40 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
 
 //END OF PRESCHOOL
 
+//kind main tag assignemnt; this allows the programme to recognize a single teacher should be doing kindy at all times and then switch,
+//exceptions made for bustime table conflicts
+          function KindyTagAssign(teacherName){
+            for (var i in list){
+              if(list[i].fname = teacherName) {
+                list[i].KindyMain = true
+                break
+              }
+            }
+          }
+// Kindy Tag Checker
+          function KindyTagCheck(){
+            if (list.includes(Teacher.KindyMain = true)){
+              return true
+            }
+            else{
+              return false
+            }
+          }
           //Kindy Assignments
 
-          function LessonAssignKindy(currentClass, elementTag, startTimeLimiter, checkRequired, className) {
-            var Required = checkRequired;
-            if( Required == true){
-              var Conflictfilter =  ConflictCheck(className);
+          function LessonAssignKindy(currentClass, elementTag, startTimeLimiter) {
 
-              var CurrentClass = currentClass;
-              var FullClasses = Conflictfilter.filter(function(Teacher){   //remove teachers who have too many classes
-                return Teacher.ClassN < Teacher.IdealClassn
-              });
+            var TagCheck = KindyTagCheck()
+            var CurrentClass = currentClass;
 
-
-              var KindyTeachers = FullClasses.filter(function(Teacher){  //Filter to remove teachers who start too late
-                return parseInt(Teacher.Start) < startTimeLimiter
-              });
-              var KindyTeach = KindyTeachers [getRandomInt(KindyTeachers.length)];
-              document.getElementById(elementTag).innerHTML = KindyTeach.fname;
+            if ( TagCheck = true) {
+              var KindyTeach = list.filter(function(Teacher){
+                return Teacher.KindyMain = true
+              })
               addAssign2(CurrentClass, KindyTeach.fname)
             }
+
             else {
-              var CurrentClass = currentClass;
               var FullClasses = list.filter(function(Teacher){
                 return Teacher.ClassN < Teacher.IdealClassn
               });
@@ -401,25 +415,26 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
               var KindyTeach = KindyTeachers [getRandomInt(KindyTeachers.length)];
               document.getElementById(elementTag).innerHTML = KindyTeach.fname;
               addAssign2(CurrentClass, KindyTeach.fname)
-            }};
+            }
+            };
 
 //Kindy assignment function call block
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyFWT', 'KindyFWTLead', 1115, false)});//Fun with teacher
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindySAT', 'KindySATLead', 1115, false)});//show and tell
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyBBT', 'KindyBBTLead', 1115, false)});// bathroom and book time
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyST', 'KindySTLead', 1115, false)}); //Snack time
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyCT', 'KindyCTLead', 1115, false)});//Circle time
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyVT', 'KindyVTLead', 1115, false)});//Vocab time
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyA1', 'KindyA1Lead', 1115, false)});//Activity 1
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyPh', 'KindyPhLead', 1115, false)});//kindy phonics
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyCP', 'KindyCPLead', 1115, false)});//class presentation
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('Kindy2hPP', 'Kindy2hPPLead', 1115, false)});//2 hour parents presentation
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyABCT', 'KindyABCTLead', 1115, false)}); //abc time and bathroom
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyVRT', 'KindyVRTLead', 1115, false)}); //Vocab review time and bathroom
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindySB', 'KindySBLead', 1115, false)}); //spelling bee
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyBST', 'KindyBSTLead', 1115, false)}); //story time
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyA2', 'KindyA2Lead', 1115, false)}); //activity 2
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('Kindy4hCP', 'Kindy4hCPLead', 1115, false)}); //4 hour class presentation
-document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('Kindy4hPP', 'Kindy4hPPLead', 1115, false)});//4 hour parents presentation
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyFWT', 'KindyFWTLead', 1115)});//Fun with teacher
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindySAT', 'KindySATLead', 1115)});//show and tell
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyBBT', 'KindyBBTLead', 1115)});// bathroom and book time
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyST', 'KindySTLead', 1115)}); //Snack time
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyCT', 'KindyCTLead', 1115)});//Circle time
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyVT', 'KindyVTLead', 1115)});//Vocab time
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyA1', 'KindyA1Lead', 1115)});//Activity 1
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyPh', 'KindyPhLead', 1115)});//kindy phonics
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyCP', 'KindyCPLead', 1115)});//class presentation
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('Kindy2hPP', 'Kindy2hPPLead', 1115)});//2 hour parents presentation
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyABCT', 'KindyABCTLead', 1115)}); //abc time and bathroom
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyVRT', 'KindyVRTLead', 1115)}); //Vocab review time and bathroom
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindySB', 'KindySBLead', 1115)}); //spelling bee
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyBST', 'KindyBSTLead', 1115)}); //story time
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyA2', 'KindyA2Lead', 1115)}); //activity 2
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('Kindy4hCP', 'Kindy4hCPLead', 1115)}); //4 hour class presentation
+document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('Kindy4hPP', 'Kindy4hPPLead', 1115)});//4 hour parents presentation
 
 // end of kindy
