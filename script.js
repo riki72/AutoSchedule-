@@ -270,59 +270,7 @@ function Teacher(f_name, l_name, NativeOrB, StartT, EndT, preFWT, prePE, preCT, 
           return Math.floor(Math.random() * Math.floor(max));
         };
 
-        //bus Assignment
-        document.getElementById('test').addEventListener('click', function(){BusAssign()})
-        function BusAssign () {
-          var BusTeachers = list.filter(function(Teacher){
-            return Teacher.NativeStatus == "bilingual"});
-            var PUBus1 = BusTeachers [getRandomInt(2)];
-            if (PUBus1 == BusTeachers [0]) { var PUBus2 = BusTeachers [1] }
-            else { var PUBus2 = BusTeachers [0]};
-            document.getElementById('PickUpBus').innerHTML =
-
-            "<table>"+ //pick up bus
-            "<tr>"+
-            "<th>Bus</th>"+
-            "<th>Start</th>"+
-            "<th>Finish</th>"+
-            "<th>Teacher Assigned</th>"+
-            "</tr>"+
-            "<tr>"+
-            "<td>Pickup bus 1</td>"+
-            "<td>" +document.getElementById('PUBus1Start').value+ "</td>"+
-            "<td>"  +document.getElementById('PUBus1Fin').value+"</td>"+
-            "<td>"+PUBus1.fname+"</td>"+
-            "</tr>"+
-            " <tr>"+
-            "<td>Pickup bus 2</td>"+
-            "<td>"+document.getElementById('PUBus2Start').value+  "</td>"+
-            "<td>"+document.getElementById('PUBus2Fin').value+ "</td>"+
-            " <td>"+PUBus2.fname+"</td>"+
-            "</tr>"+
-            "</table>"
-
-            document.getElementById('DropOffBus').innerHTML =
-            "<table>"+ //drop off bus
-            "<tr>"+
-            "<th>Bus</th>"+
-            "<th>Start</th>"+
-            "<th>Finish</th>"+
-            "<th>Teacher Assigned</th>"+
-            "</tr>"+
-            "<tr>"+
-            "<td>Drop off bus 1</td>"+
-            "<td>" +document.getElementById('DOBus1Start').value+ "</td>"+
-            "<td>"  +document.getElementById('DOBus1Fin').value+"</td>"+
-            "<td>"+PUBus1.fname+"</td>"+
-            "</tr>"+
-            " <tr>"+
-            "<td>Drop Off bus 2</td>"+
-            "<td>"+document.getElementById('DOBus2Start').value+  "</td>"+
-            "<td>"+document.getElementById('DOBus2Fin').value+ "</td>"+
-            " <td>"+PUBus2.fname+"</td>"+
-            "</tr>"+
-            "</table>" ;};
-
+      
   //assignment of classes
 
   function ConflictCheck(lesson) {                          // conflict checker function
@@ -374,17 +322,21 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
 //kind main tag assignemnt; this allows the programme to recognize a single teacher should be doing kindy at all times and then switch,
 //exceptions made for bustime table conflicts
           function KindyTagAssign(teacherName){
+
             for (var i in list){
               if(list[i].fname = teacherName) {
                 list[i].KindyMain = true
                 break
+                  console.log("triggered")
               }
             }
-          }
+          };
 // Kindy Tag Checker
           function KindyTagCheck(){
+            console.log("triggered")
             if (list.includes(Teacher.KindyMain = true)){
               return true
+            ;
             }
             else{
               return false
@@ -398,7 +350,7 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
             var CurrentClass = currentClass;
 
             if ( TagCheck = true) {
-              var KindyTeach = list.filter(function(Teacher){
+              var KindyTeach = list.filter(function(Teacher) {
                 return Teacher.KindyMain = true
               })
               addAssign2(CurrentClass, KindyTeach.fname)
