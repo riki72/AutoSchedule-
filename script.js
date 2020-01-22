@@ -270,7 +270,7 @@ function Teacher(f_name, l_name, NativeOrB, StartT, EndT, preFWT, prePE, preCT, 
           return Math.floor(Math.random() * Math.floor(max));
         };
 
-      
+
   //assignment of classes
 
   function ConflictCheck(lesson) {                          // conflict checker function
@@ -319,44 +319,10 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
 
 //END OF PRESCHOOL
 
-//kind main tag assignemnt; this allows the programme to recognize a single teacher should be doing kindy at all times and then switch,
-//exceptions made for bustime table conflicts
-          function KindyTagAssign(teacherName){
-
-            for (var i in list){
-              if(list[i].fname = teacherName) {
-                list[i].KindyMain = true
-                break
-                  console.log("triggered")
-              }
-            }
-          };
-// Kindy Tag Checker
-          function KindyTagCheck(){
-            console.log("triggered")
-            if (list.includes(Teacher.KindyMain = true)){
-              return true
-            ;
-            }
-            else{
-              return false
-            }
-          }
           //Kindy Assignments
 
           function LessonAssignKindy(currentClass, elementTag, startTimeLimiter) {
-
-            var TagCheck = KindyTagCheck()
-            var CurrentClass = currentClass;
-
-            if ( TagCheck = true) {
-              var KindyTeach = list.filter(function(Teacher) {
-                return Teacher.KindyMain = true
-              })
-              addAssign2(CurrentClass, KindyTeach.fname)
-            }
-
-            else {
+              CurrentClass = currentClass
               var FullClasses = list.filter(function(Teacher){
                 return Teacher.ClassN < Teacher.IdealClassn
               });
@@ -367,8 +333,8 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
               var KindyTeach = KindyTeachers [getRandomInt(KindyTeachers.length)];
               document.getElementById(elementTag).innerHTML = KindyTeach.fname;
               addAssign2(CurrentClass, KindyTeach.fname)
-            }
             };
+
 
 //Kindy assignment function call block
 document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('KindyFWT', 'KindyFWTLead', 1115)});//Fun with teacher
