@@ -356,3 +356,33 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
 document.getElementById('test').addEventListener('click', function(){ LessonAssignKindy('Kindy4hPP', 'Kindy4hPPLead', 1115)});//4 hour parents presentation
 
 // end of kindy
+
+//begining of Elementary assignment
+
+
+          function LessonAssignEle(currentClass, elementTag, startTimeLimiter) {
+              CurrentClass = currentClass
+              var FullClasses = list.filter(function(Teacher){
+                return Teacher.ClassN < Teacher.IdealClassn
+              });
+              //Filter to remove teachers who start too late
+              var EleTeachers = FullClasses.filter(function(Teacher){
+                return parseInt(Teacher.Start) < startTimeLimiter
+              });
+              var EleTeach = EleTeachers [getRandomInt(EleTeachers.length)];
+              document.getElementById(elementTag).innerHTML = EleTeach.fname;
+              addAssign2(CurrentClass, EleTeach.fname)
+            };
+
+// elementary assign callblock
+document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('EleFWT', 'EleFWTLead', 1200)});
+document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('ElePT', 'ElePTLead', 1200)});
+document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('EleST', 'EleSTLead', 1200)});
+document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('EleSD', 'EleSDLead', 1200)});
+document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('EleClass1', 'EleClass1Lead', 1200)});
+document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('Ele2ST', 'Ele2STLead', 1200)});
+document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('EleGA', 'EleGALead', 1200)});
+document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('Class2B', 'Class2BeginnerLead', 1200)});
+document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('Class2I', 'Class2IntermediateLead', 1200)});
+document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('EleP', 'ElePLead', 1200)});
+document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('EleClass3', 'EleClass3Lead', 1200)});
