@@ -66,47 +66,47 @@ function Teacher(f_name, l_name, NativeOrB, StartT, EndT, preFWT, prePE, preCT, 
     var native = document.getElementById("NativeOrB").value;
     var start =  parseInt(document.getElementById("StartT").value, 10);
     var end = parseInt(document.getElementById("EndT").value, 10);
-    var PreSchoolFWT = "False";
-    var PreSchoolPE = "False";
-    var PreSchoolCT = "False";
-    var PreSchoolBDT = "False";
-    var PreSchoolOIP = "False";
-    var PreSchoolBL = "False";
-    var PreSchoolRST = "False";
-    var PreSchoolVT = "False";
-    var PreSchoolAP = "False";
-    var PreSchoolMA = "False";
-    var PreSchoolCP = "False";
-    var PreSchoolPP = "False";
-    var KindyFWT = "False";
-    var KindySAT = "False";
-    var KindyBBT = "False";
-    var KindyST = "False";
-    var KindyCT = "False";
-    var KindyVT = "False";
-    var KindyA1 = "False";
-    var KindyPh = "False";
-    var KindyCP = "False";
-    var Kindy2hPP = "False";
-    var KindyABCT = "False";
-    var KindyVRT = "False";
-    var KindySB = "False";
-    var KindyBST = "False";
-    var KindyA2 = "False";
-    var Kindy4hCP = "False";
-    var Kindy4hPP = "False";
-    var EleFWT = "False";
-    var ElePT = "False";
-    var EleST = "False";
-    var EleSD = "False";
-    var EleClass1 = "False";
-    var Ele2ST = "False";
-    var EleGA = "False";
-    var Class2B = "False";
-    var Class2I = "False";
-    var EleP = "False";
-    var EleClass3 = "False";
-    var EleFWTLate = "False";
+    var PreSchoolFWT = false;
+    var PreSchoolPE = false;
+    var PreSchoolCT = false;
+    var PreSchoolBDT = false;
+    var PreSchoolOIP = false;
+    var PreSchoolBL = false;
+    var PreSchoolRST = false;
+    var PreSchoolVT = false;
+    var PreSchoolAP = false;
+    var PreSchoolMA = false;
+    var PreSchoolCP = false;
+    var PreSchoolPP = false;
+    var KindyFWT = false;
+    var KindySAT = false;
+    var KindyBBT = false;
+    var KindyST = false;
+    var KindyCT = false;
+    var KindyVT = false;
+    var KindyA1 = false;
+    var KindyPh = false;
+    var KindyCP = false;
+    var Kindy2hPP = false;
+    var KindyABCT = false;
+    var KindyVRT = false;
+    var KindySB = false;
+    var KindyBST = false;
+    var KindyA2 = false;
+    var Kindy4hCP = false;
+    var Kindy4hPP = false;
+    var EleFWT = false;
+    var ElePT = false;
+    var EleST = false;
+    var EleSD = false;
+    var EleClass1 = false;
+    var Ele2ST = false;
+    var EleGA = false;
+    var Class2B = false;
+    var Class2I = false;
+    var EleP = false;
+    var EleClass3 = false;
+    var EleFWTLate = false;
     var ClassN = 0 ;
     var KindyTag = false;
 
@@ -273,17 +273,13 @@ function Teacher(f_name, l_name, NativeOrB, StartT, EndT, preFWT, prePE, preCT, 
 
   //assignment of classes
 
-  function ConflictCheck(lesson) {                          // conflict checker function
 
-
-
-  }
 
               //DONT DELETE DUMB DUMB VERY IMPORTANT
               function addAssign2(className,teach){   //function to add assigned lesson to the Teacher Object
                 for( var i in list) {
                   if(list[i].fname === teach) {
-                    list[i][className] = "True";
+                    list[i][className] = true;
                     list[i].ClassN++;
                     break;
                   }}};
@@ -359,8 +355,21 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
 
 //begining of Elementary assignment
 
+function ConflictCheck(lesson) {                         // conflict checker function
 
-          function LessonAssignEle(currentClass, elementTag, startTimeLimiter) {
+
+
+}
+
+
+          function LessonAssignEle(currentClass, elementTag, startTimeLimiter, conflict) {
+
+            let conflictCheck = conflict
+
+            if (conflictCheck = true) {
+              conflictCheck(currentClass)
+            }
+            else {
               CurrentClass = currentClass
               var FullClasses = list.filter(function(Teacher){
                 return Teacher.ClassN < Teacher.IdealClassn
@@ -372,6 +381,7 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
               var EleTeach = EleTeachers [getRandomInt(EleTeachers.length)];
               document.getElementById(elementTag).innerHTML = EleTeach.fname;
               addAssign2(CurrentClass, EleTeach.fname)
+              }
             };
 
 // elementary assign callblock
