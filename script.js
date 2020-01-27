@@ -361,6 +361,7 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
 
         if (currentClass == 'EleFWT') {
           let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
+          console.log(Full);
           let AssignedT = Full.filter(Teacher => Teacher.PreSchoolAP == false && Teacher.PreSchoolMA == false && Teacher.PreSchoolCP == false && Teacher.PreSchoolPP == false)
           var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
           addAssign2(currentClass, EleTeach.fname);
