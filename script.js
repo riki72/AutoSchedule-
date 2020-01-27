@@ -359,14 +359,17 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
 
           function LessonAssignEle(currentClass, elementTag, startTimeLimiter) {
 
+
+
         if (currentClass == 'EleFWT') {
+          let CurrentClass = currentClass
           let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
           console.log(Full);
-          let AssignedT = Full.filter( Teacher => Teacher.PreSchoolAP == false && Teacher.PreSchoolMA == false);
+          let AssignedT = Full.filter( Teacher => Teacher.PreSchoolAP == false && Teacher.PreSchoolMA == false &&);
           console.log(AssignedT);
           var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
           console.log(EleTeach);
-          addAssign2(currentClass, EleTeach.fname);
+          addAssign2(CurrentClass, EleTeach.fname);
           }
           else if (currentClass == 'ElePT') {
           let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
