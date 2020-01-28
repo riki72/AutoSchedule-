@@ -19,7 +19,7 @@ function Teacher(f_name, l_name, NativeOrB, StartT, EndT, preFWT, prePE, preCT, 
     this.PreSchoolVT = preVT ;
     this.PreSchoolAP = preAP ;
     this.PreSchoolMA = preMA;
-    this.PreschoolCP = preCP ;
+    this.PreSchoolCP = preCP ;
     this.PreSchoolPP = prePP ;
     this.KindyFWT = kFWT ;
     this.KindySAT = kSAT ;
@@ -364,66 +364,93 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
         if (currentClass == 'EleFWT') {
           let CurrentClass = currentClass
           let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
-          console.log(Full);
-          let AssignedT = Full.filter( Teacher => Teacher.PreSchoolAP == false && Teacher.PreSchoolMA == false &&);
-          console.log(AssignedT);
+          let AssignedT = Full.filter( Teacher => Teacher.PreSchoolAP == false && Teacher.PreSchoolMA == false && Teacher.PreSchoolCP == false && Teacher.PreSchoolPP == false);
           var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
-          console.log(EleTeach);
           addAssign2(CurrentClass, EleTeach.fname);
+          document.getElementById(elementTag).innerHTML = EleTeach.fname
           }
           else if (currentClass == 'ElePT') {
+            let CurrentClass = currentClass
           let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
           let AssignedT = Full.filter(Teacher => Teacher.KindyFWT == false && Teacher.KindySAT == false && Teacher.KindyBBT == false && Teacher.KindyST == false)
           var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
-          addAssign2(currentClass, EleTeach.fname);
+          addAssign2(CurrentClass, EleTeach.fname);
+          document.getElementById(elementTag).innerHTML = EleTeach.fname
             }
           else if (currentClass == 'EleST') {
+              let CurrentClass = currentClass
           let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
           let AssignedT = Full.filter(Teacher => Teacher.KindyCT == false)
           var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
-          addAssign2(currentClass, EleTeach.fname);
+          addAssign2(CurrentClass, EleTeach.fname);
+          document.getElementById(elementTag).innerHTML = EleTeach.fname
             }
           else if (currentClass == 'EleSD') {
+              let CurrentClass = currentClass
           let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
           let AssignedT = Full.filter(Teacher => Teacher.KindyCT == false && Teacher.KindyVT == false)
           var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
-          addAssign2(currentClass, EleTeach.fname);
+          addAssign2(CurrentClass, EleTeach.fname);
+          document.getElementById(elementTag).innerHTML = EleTeach.fname
             }
           else if (currentClass == 'EleClass1') {
+              let CurrentClass = currentClass
           let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
           let AssignedT = Full.filter( Teacher => Teacher.KindyA1 == false && Teacher.KindyPh == false && Teacher.KindyCP == false)
           var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
-          addAssign2(currentClass, EleTeach.fname);
+          addAssign2(CurrentClass, EleTeach.fname);
+          document.getElementById(elementTag).innerHTML = EleTeach.fname
                 }
           else if (currentClass == 'Ele2ST') {
+              let CurrentClass = currentClass
             let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
             let AssignedT = Full.filter( Teacher => Teacher.KindyPh == false && Teacher.KindyCP == false)
             var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
-            addAssign2(currentClass, EleTeach.fname);
+            addAssign2(CurrentClass, EleTeach.fname);
+            document.getElementById(elementTag).innerHTML = EleTeach.fname
+          }
+          else if (currentClass == 'EleGA') {
+            let CurrentClass = currentClass
+          let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
+          let AssignedT = Full.filter( Teacher => Teacher.KindyPh == false && Teacher.KindyCP == false && Teacher.Kindy2hPP == false);
+          var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
+          addAssign2(CurrentClass, EleTeach.fname);
+          document.getElementById(elementTag).innerHTML = EleTeach.fname
           }
           else if (currentClass == 'Class2B') {
+              let CurrentClass = currentClass
             let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
-            let AssignedT = Full.filter(Teacher => Teacher.KindyVRT == false && Teacher.KindySB == false && Teacher.KindyBST == false && Teacher.KindyA2 == false)
+            let AssignedT = Full.filter(Teacher => Teacher.KindyVRT == false && Teacher.KindySB == false && Teacher.KindyBST == false && Teacher.KindyA2 == false);
             var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
-            addAssign2(currentClass, EleTeach.fname);
+            addAssign2(CurrentClass, EleTeach.fname);
+            document.getElementById(elementTag).innerHTML = EleTeach.fname
           }
           else if (currentClass == 'Class2I') {
+              let CurrentClass = currentClass
             let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
+            console.log(Full);
             let AssignedT = Full.filter(Teacher => Teacher.KindyVRT == false && Teacher.KindySB == false && Teacher.KindyBST == false && Teacher.KindyA2 == false && Teacher.Class2B == false)
+            console.log(AssignedT);
             var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
-            addAssign2(currentClass, EleTeach.fname);
+            console.log(EleTeach);
+            addAssign2(CurrentClass, EleTeach.fname);
+            document.getElementById(elementTag).innerHTML = EleTeach.fname
           }
           else if (currentClass == 'EleP') {
+              let CurrentClass = currentClass
             let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
             let AssignedT = Full.filter(Teacher => Teacher.KindyA2 == false && Teacher.Kindy4hCP == false)
             var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
-            addAssign2(currentClass, EleTeach.fname);
+            addAssign2(CurrentClass, EleTeach.fname);
+            document.getElementById(elementTag).innerHTML = EleTeach.fname
           }
         else if (currentClass == 'EleClass3') {
+            let CurrentClass = currentClass
           let Full = list.filter( Teacher => Teacher.ClassN < Teacher.IdealClassn);
           let AssignedT = Full.filter(Teacher =>  Teacher.Kindy4hPP == false)
           var EleTeach = AssignedT[getRandomInt(AssignedT.length)];
-          addAssign2(currentClass, EleTeach.fname);
+          addAssign2(CurrentClass, EleTeach.fname);
+          document.getElementById(elementTag).innerHTML = EleTeach.fname
         }
       };
 
@@ -439,3 +466,31 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
 document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('Class2I', 'Class2IntermediateLead', 1200)});
 document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('EleP', 'ElePLead', 1200)});
 document.getElementById('test').addEventListener('click', function(){ LessonAssignEle('EleClass3', 'EleClass3Lead', 1200)});
+
+// Final Checker to fix the problems of random assignment
+
+function Checker(elementID, filFun){
+ var inner = document.getElementById(elementID).innerHTML;
+
+if ( inner == 'Placeholdername') {
+  let Backup = list.filter(filFun)
+  console.log(Backup);
+  let Backup2 = Backup[getRandomInt(Backup.length)];
+  document.getElementById(elementID).innerHTML = Backup2.fname
+}
+  else {
+    console.log( elementID + 'this is fine');
+  }
+};
+
+document.getElementById('backup').addEventListener('click', function(){ Checker('EleFWTLead', Teacher => Teacher.PreSchoolAP == false && Teacher.PreSchoolMA == false && Teacher.PreSchoolCP == false && Teacher.PreSchoolPP == false )});
+document.getElementById('backup').addEventListener('click', function(){ Checker('ElePTLead', Teacher => Teacher.KindyFWT == false && Teacher.KindySAT == false && Teacher.KindyBBT == false && Teacher.KindyST == false )});
+document.getElementById('backup').addEventListener('click', function(){ Checker('EleSTLead', Teacher => Teacher.KindyCT == false )});
+document.getElementById('backup').addEventListener('click', function(){ Checker('EleSDLead', Teacher => Teacher.KindyCT == false && Teacher.KindyVT == false)});
+document.getElementById('backup').addEventListener('click', function(){ Checker('EleClass1Lead', Teacher => Teacher.KindyA1 == false && Teacher.KindyPh == false && Teacher.KindyCP == false )});
+document.getElementById('backup').addEventListener('click', function(){ Checker('Ele2STLead', Teacher => Teacher.KindyPh == false && Teacher.KindyCP == false )});
+document.getElementById('backup').addEventListener('click', function(){ Checker('EleGALead', Teacher => Teacher.KindyPh == false && Teacher.KindyCP == false && Teacher.Kindy2hPP == false)});
+document.getElementById('backup').addEventListener('click', function(){ Checker('Class2BeginnerLead', Teacher => Teacher.KindyVRT == false && Teacher.KindySB == false && Teacher.KindyBST == false && Teacher.KindyA2 == false)});
+document.getElementById('backup').addEventListener('click', function(){ Checker('Class2IntermediateLead', Teacher => Teacher.KindyVRT == false && Teacher.KindySB == false && Teacher.KindyBST == false && Teacher.KindyA2 == false && Teacher.Class2B == false )});
+document.getElementById('backup').addEventListener('click', function(){ Checker('ElePLead', Teacher => Teacher.KindyA2 == false && Teacher.Kindy4hCP == false)});
+document.getElementById('backup').addEventListener('click', function(){ Checker('EleClass3Lead', Teacher => Teacher =>  Teacher.Kindy4hPP == false)});
