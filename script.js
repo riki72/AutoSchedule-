@@ -472,7 +472,7 @@ document.getElementById('test').addEventListener('click', function(){ LessonAssi
 function Checker(elementID, filFun){
  var inner = document.getElementById(elementID).innerHTML;
 
-if ( inner == 'Placeholdername') {
+if ( inner == '()') {
   let Backup = list.filter(filFun)
   console.log(Backup);
   let Backup2 = Backup[getRandomInt(Backup.length)];
@@ -483,14 +483,14 @@ if ( inner == 'Placeholdername') {
   }
 };
 
-document.getElementById('backup').addEventListener('click', function(){ Checker('EleFWTLead', Teacher => Teacher.PreSchoolAP == false && Teacher.PreSchoolMA == false && Teacher.PreSchoolCP == false && Teacher.PreSchoolPP == false )});
-document.getElementById('backup').addEventListener('click', function(){ Checker('ElePTLead', Teacher => Teacher.KindyFWT == false && Teacher.KindySAT == false && Teacher.KindyBBT == false && Teacher.KindyST == false )});
-document.getElementById('backup').addEventListener('click', function(){ Checker('EleSTLead', Teacher => Teacher.KindyCT == false )});
-document.getElementById('backup').addEventListener('click', function(){ Checker('EleSDLead', Teacher => Teacher.KindyCT == false && Teacher.KindyVT == false)});
-document.getElementById('backup').addEventListener('click', function(){ Checker('EleClass1Lead', Teacher => Teacher.KindyA1 == false && Teacher.KindyPh == false && Teacher.KindyCP == false )});
-document.getElementById('backup').addEventListener('click', function(){ Checker('Ele2STLead', Teacher => Teacher.KindyPh == false && Teacher.KindyCP == false )});
-document.getElementById('backup').addEventListener('click', function(){ Checker('EleGALead', Teacher => Teacher.KindyPh == false && Teacher.KindyCP == false && Teacher.Kindy2hPP == false)});
-document.getElementById('backup').addEventListener('click', function(){ Checker('Class2BeginnerLead', Teacher => Teacher.KindyVRT == false && Teacher.KindySB == false && Teacher.KindyBST == false && Teacher.KindyA2 == false)});
-document.getElementById('backup').addEventListener('click', function(){ Checker('Class2IntermediateLead', Teacher => Teacher.KindyVRT == false && Teacher.KindySB == false && Teacher.KindyBST == false && Teacher.KindyA2 == false && Teacher.Class2B == false )});
-document.getElementById('backup').addEventListener('click', function(){ Checker('ElePLead', Teacher => Teacher.KindyA2 == false && Teacher.Kindy4hCP == false)});
-document.getElementById('backup').addEventListener('click', function(){ Checker('EleClass3Lead', Teacher => Teacher =>  Teacher.Kindy4hPP == false)});
+document.getElementById('test').addEventListener('click', function(){ Checker('EleFWTLead', Teacher => Teacher.PreSchoolAP == false && Teacher.PreSchoolMA == false && Teacher.PreSchoolCP == false && Teacher.PreSchoolPP == false )});
+document.getElementById('test').addEventListener('click', function(){ Checker('ElePTLead', Teacher => Teacher.KindyFWT == false && Teacher.KindySAT == false && Teacher.KindyBBT == false && Teacher.KindyST == false )});
+document.getElementById('test').addEventListener('click', function(){ Checker('EleSTLead', Teacher => Teacher.KindyCT == false )});
+document.getElementById('test').addEventListener('click', function(){ Checker('EleSDLead', Teacher => Teacher.KindyCT == false && Teacher.KindyVT == false)});
+document.getElementById('test').addEventListener('click', function(){ Checker('EleClass1Lead', Teacher => Teacher.KindyA1 == false && Teacher.KindyPh == false && Teacher.KindyCP == false )});
+document.getElementById('test').addEventListener('click', function(){ Checker('Ele2STLead', Teacher => Teacher.KindyPh == false && Teacher.KindyCP == false )});
+document.getElementById('test').addEventListener('click', function(){ Checker('EleGALead', Teacher => Teacher.KindyPh == false && Teacher.KindyCP == false && Teacher.Kindy2hPP == false)});
+document.getElementById('test').addEventListener('click', function(){ Checker('Class2BeginnerLead', Teacher => Teacher.KindyVRT == false && Teacher.KindySB == false && Teacher.KindyBST == false && Teacher.KindyA2 == false)});
+document.getElementById('test').addEventListener('click', function(){ Checker('Class2IntermediateLead', Teacher => Teacher.KindyVRT == false && Teacher.KindySB == false && Teacher.KindyBST == false && Teacher.KindyA2 == false && Teacher.Class2B == false )});
+document.getElementById('test').addEventListener('click', function(){ Checker('ElePLead', Teacher => Teacher.KindyA2 == false && Teacher.Kindy4hCP == false)});
+document.getElementById('test').addEventListener('click', function(){ Checker('EleClass3Lead', Teacher => Teacher =>  Teacher.Kindy4hPP == false)});
